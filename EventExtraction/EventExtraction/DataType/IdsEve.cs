@@ -113,8 +113,8 @@ namespace EventExtraction.DataType
                    FlowId == eve.FlowId &&
                    PcapCnt == eve.PcapCnt &&
                    EventType == eve.EventType &&
-                   Statics.IpComparison(SourceIp, eve.SourceIp) &&
-                   Statics.IpComparison(TargetIp, eve.TargetIp) &&
+                   Statics.IpEquals(SourceIp, eve.SourceIp) &&
+                   Statics.IpEquals(TargetIp, eve.TargetIp) &&
                    SourcePort == eve.SourcePort &&
                    TargetPort == eve.TargetPort &&
                    Protocol == eve.Protocol &&

@@ -2,10 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Runtime.Serialization.Json;
-using System.Text;
-using System.Threading.Tasks;
+using EventExtraction.DataType;
 
 namespace EventExtraction
 {
@@ -42,7 +39,8 @@ namespace EventExtraction
 
             for (int i = skipFirstLine ? 1 : 0 ; i < strs.Length; i++)
             {
-                T item = (T)Activator.CreateInstance(typeof(T), strs[i].Split(','));
+                var t = strs[i].Split(',');
+                T item = (T)Activator.CreateInstance(typeof(T), t);
                 result.Add(item);
             }
 

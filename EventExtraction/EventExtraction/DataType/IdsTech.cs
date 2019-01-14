@@ -46,27 +46,32 @@ namespace EventExtraction.DataType
 
         public int? GroupSourceTarget { get; set; }
 
-        public IdsTech(string [] log)
+        public IdsTech()
         {
-            ThreatName = log[0] ?? null;
-            ThreatType = log[1] ?? null;
-            ThreatSubType = log[2] ?? null;
-            Level = log[3] ?? null;
+
+        }
+
+        public IdsTech(params string [] log)
+        {
+            ThreatName = log[0];
+            ThreatType = log[1];
+            ThreatSubType = log[2];
+            Level = log[3];
             SourceIp = log[4] == null ? null : IPAddress.Parse(log[4]);
             SourcePort = log[5] == null ? 0 : int.Parse(log[5]);
             TargetIp = log[6] == null ? null : IPAddress.Parse(log[6]);            ;
             TargetPort = log[7] == null ? 0 : int.Parse(log[7]);
-            SourceInterface = log[8] ?? null;
-            TargetInterface = log[9] ?? null;
-            AppProtocol = log[10] ?? null;
-            Action = log[11] ?? null;
-            SecurityStrategy = log[12] ?? null;
+            SourceInterface = log[8];
+            TargetInterface = log[9];
+            AppProtocol = log[10];
+            Action = log[11];
+            SecurityStrategy = log[12];
             DateTime.TryParse(log[13], out DateTime time);
             StartTime = time;
             DateTime.TryParse(log[14], out time);
             EndTime = time;
-            TestEngine = log[15] ?? null;
-            Comment = log[16] ?? null;
+            TestEngine = log[15];
+            Comment = log[16];
 
             GroupTypeTarget = null;
             GroupSourceTarget = null;
@@ -80,9 +85,9 @@ namespace EventExtraction.DataType
                    ThreatType == tech.ThreatType &&
                    ThreatSubType == tech.ThreatSubType &&
                    Level == tech.Level &&
-                   Statics.IpComparison(SourceIp, tech.SourceIp) &&
+                   Statics.IpEquals(SourceIp, tech.SourceIp) &&
                    SourcePort == tech.SourcePort &&
-                   Statics.IpComparison(TargetIp, tech.TargetIp) &&
+                   Statics.IpEquals(TargetIp, tech.TargetIp) &&
                    TargetPort == tech.TargetPort &&
                    SourceInterface == tech.SourceInterface &&
                    TargetInterface == tech.TargetInterface &&
