@@ -6,23 +6,13 @@ namespace EventExtraction.DataType
 {
     //威胁名称	威胁类型	威胁子类型	级别	攻击主机	端口	目的	端口	源接口	目的接口	
     //应用/协议	处理动作	安全策略	攻击开始时间	攻击结束时间	检测引擎	额外信息
-    public class IdsTech
+    public class IdsTech : IdsTechCore
     {
-        public string ThreatName { get; private set; }
-
         public string ThreatType { get; private set; }
 
         public string ThreatSubType { get; private set; }
 
         public string Level { get; private set; }
-
-        public IPAddress SourceIp { get; private set; }
-
-        public int SourcePort { get; private set; }
-
-        public IPAddress TargetIp { get; private set; }
-
-        public int TargetPort { get; private set; }
 
         public string SourceInterface { get; private set; }
 
@@ -51,16 +41,11 @@ namespace EventExtraction.DataType
 
         }
 
-        public IdsTech(params string [] log)
+        public IdsTech(params string [] log): base(log)
         {
-            ThreatName = log[0];
             ThreatType = log[1];
             ThreatSubType = log[2];
             Level = log[3];
-            SourceIp = log[4] == null ? null : IPAddress.Parse(log[4]);
-            SourcePort = log[5] == null ? 0 : int.Parse(log[5]);
-            TargetIp = log[6] == null ? null : IPAddress.Parse(log[6]);            ;
-            TargetPort = log[7] == null ? 0 : int.Parse(log[7]);
             SourceInterface = log[8];
             TargetInterface = log[9];
             AppProtocol = log[10];
@@ -75,6 +60,16 @@ namespace EventExtraction.DataType
 
             GroupTypeTarget = null;
             GroupSourceTarget = null;
+        }
+
+        public bool BaseCompare(object obj)
+        {
+            return base.Equals(obj);
+        }
+
+        public int BaseGetHashcode()
+        {
+            return base.GetHashCode();
         }
 
         public override bool Equals(object obj)
@@ -121,6 +116,30 @@ namespace EventExtraction.DataType
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(TestEngine);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Comment);
             return hashCode;
+        }
+
+        public class IdsTechCoreCompare : IEqualityComparer<IdsTech>
+        {
+            public bool Equals(IdsTech x, IdsTech y)
+            {
+                if (x == null && y == null)
+                {
+                    return true;
+                }
+                else if (x == null || y == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    return y.BaseCompare(x);
+                }
+            }
+
+            public int GetHashCode(IdsTech obj)
+            {
+                return obj.BaseGetHashcode();
+            }
         }
     }
 }

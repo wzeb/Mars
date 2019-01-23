@@ -50,9 +50,16 @@
 
         static void Main(string[] args)
         {
-            Console.WriteLine(DateTime.Now.TimeOfDay.TotalMinutes);
+            var origins = ContentExtractor.CsvReader<IdsTech>(@"E:\data\IDS\242.txt");
+            var comparer = new IdsTech.IdsTechCoreCompare();
+            var content = new List<IdsTech>(origins.Distinct(comparer));
+
+            //Console.WriteLine(Statics.Percentile(new double[] { 1,2,5,8,9}, .9));
+            //TechAnalyzer.NumberAnalyzer(new List<IdsTech>(content));
+            //Console.ReadKey();
+            Console.WriteLine(content.Count());
+            //TechAnalyzer.NumberAnalyzer(origins);
             Console.ReadKey();
-            //TechAnalyzer.NumberAnalyzer();
         }
     }
 }

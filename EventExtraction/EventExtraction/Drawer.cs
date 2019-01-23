@@ -32,7 +32,7 @@ namespace EventExtraction
                 Name = "Default"
             };
 
-            Chart.Size = new Size(2800, 1000);
+            Chart.Size = new Size(5800, 1000);
             Chart.ChartAreas.Add(chartArea);
         }
 
@@ -92,7 +92,8 @@ namespace EventExtraction
 
                 foreach (var ser in item.Value)
                 {
-                    series.Points.AddXY(ser.Key, ser.Value.Low, ser.Value.High, ser.Value.Open, ser.Value.Close);
+                    series.Points.AddXY(ser.Key, ser.Value.Low, ser.Value.High, ser.Value.Open, ser.Value.Close, ser.Value.Average, ser.Value.Median);
+                    Console.WriteLine("point: " + ser.Value.Low + "," + ser.Value.High + "," + ser.Value.Open + "," + ser.Value.Close + "," + ser.Value.Average + "," + ser.Value.Median);
                 }
             }
             Chart.SaveImage(Path, ChartImageFormat.Jpeg);
@@ -189,7 +190,7 @@ namespace EventExtraction
             if (typeof(S) == typeof(DateTime))
             {
                 axis.IntervalType = DateTimeIntervalType.Hours;
-                axis.LabelStyle.Interval = 60;
+                axis.LabelStyle.Interval = 24;
                 axis.LabelStyle.Format = "yyyy-MM-dd HH:mm:ss";
             }
             else if (typeof(S) == typeof(int) || typeof(S) == typeof(long))

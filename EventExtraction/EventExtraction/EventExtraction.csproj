@@ -55,6 +55,7 @@
     <Compile Include="ContentExtractor.cs" />
     <Compile Include="DataType\IdsEve.cs" />
     <Compile Include="DataType\IdsTech.cs" />
+    <Compile Include="DataType\IdsTechCore.cs" />
     <Compile Include="Drawer.cs" />
     <Compile Include="Json\Converter\IPAddressConverter.cs" />
     <Compile Include="Program.cs" />
