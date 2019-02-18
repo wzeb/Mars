@@ -3,14 +3,14 @@
 
   <property resource="env.properties" />
   
-	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
+<!-- 	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
 		<file>${LOG_HOME}/debug.log</file>
 	    <append>false</append>
 	    <encoder>
 	      <pattern>%d{HH:mm:ss.SSS}[%thread]:%-5level %logger{36} - %msg%n</pattern>
 	    </encoder>
 	    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<!-- rollover daily -->
+			rollover daily
 			<fileNamePattern>${LOG_HOME}/archived/debug.%d{yyyy-MM-dd}.%i.log
 	                       </fileNamePattern>
 			<timeBasedFileNamingAndTriggeringPolicy
@@ -18,7 +18,7 @@
 				<maxFileSize>10MB</maxFileSize>
 			</timeBasedFileNamingAndTriggeringPolicy>
 		</rollingPolicy>
-	 </appender>
+	 </appender> -->
 
   <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
     <!-- encoders are assigned the type
