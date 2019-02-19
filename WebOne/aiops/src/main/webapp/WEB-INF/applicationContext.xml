@@ -12,16 +12,48 @@
        http://www.springframework.org/schema/aop
        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
-    <context:component-scan base-package="com.demo" />
+    <context:component-scan base-package="ac.ict.menelaus.aiops" />
 
-    <bean id="dataSource"
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:datasource.properties" />
+    </bean>
+    <!-- <bean id="dataSource"
         class="org.springframework.jdbc.datasource.DriverManagerDataSource"
         p:driverClassName="com.mysql.jdbc.Driver"
         p:url="jdbc:mysql://XXX.XXX.130.XXX:3306/anhe?useUnicode=true&amp;characterEncoding=UTF-8"
         p:username="root" p:password="XXXXXX" />
-    <!-- 配置Jdbc模板 -->
+    配置Jdbc模板
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"
-        p:dataSource-ref="dataSource" />
+        p:dataSource-ref="dataSource" /> -->
+
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	  <property name="dataSource" ref="dataSource" />
+      <property name="configLocation"  value="/WEB-INF/mapper/sqlMapConfig.xml"/>
+ 	  <property name="mapperLocations" value="/WEB-INF/mapper/datasource/*.xml" />
+	</bean>
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${datasource.driver}" />
+        <property name="url" value="${datasource.url}" />
+        <property name="username" value="${datasource.username}" />
+        <property name="password" value="${datasource.password}" />
+<!--         初始化连接大小
+        <property name="initialSize" value="${initialSize}" />
+        连接池最大数量
+        <property name="maxActive" value="${maxActive}" />
+        连接池最大空闲
+        <property name="maxIdle" value="${maxIdle}" />
+        连接池最小空闲
+        <property name="minIdle" value="${minIdle}" />
+        获取连接最大等待时间
+        <property name="maxWait" value="${maxWait}" /> -->
+    </bean>
+    
+    <!-- mybatis spring sqlSessionTemplate,使用时直接让spring注入即可 -->
+    <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactory"></constructor-arg>
+    </bean>
+
+
 
     <!-- 配置事务管理器 -->
     <bean id="transactionManager"
