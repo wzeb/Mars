@@ -2,8 +2,6 @@ package ac.ict.menelaus.aiops.dal.intf;
 
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
-
 import ac.ict.menelaus.aiops.object.dao.Test;
 
 public interface ITestDal {
