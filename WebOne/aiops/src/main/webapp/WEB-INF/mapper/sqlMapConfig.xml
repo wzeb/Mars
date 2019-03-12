@@ -6,5 +6,8 @@
 <configuration>  
     <typeAliases>
         <typeAlias type="ac.ict.menelaus.aiops.object.dao.Test" alias="test" />
+        <typeAlias type="ac.ict.menelaus.aiops.object.dao.IPS" alias="IPS" />
+        <typeAlias type="ac.ict.menelaus.aiops.object.dao.ZombieNetwork" alias="ZombieNetwork" />
+        <typeAlias type="ac.ict.menelaus.aiops.object.dao.ServiceApplicationControl" alias="ServiceApplicationControl" />
     </typeAliases>
 </configuration>

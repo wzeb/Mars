@@ -6,8 +6,13 @@
 <script type="text/javascript" src="jsp/lib/easyui/locale/easyui-lang-zh_CN.js"></script>
 
 <html>
+<head>
+<title>
+
+</title>
+</head>
 <body id="ff" class="easyui-layout">
-     <div data-options="region:'north',href:'jsp/top.jsp'" style="height:100px;"></div>
+<!--      <div data-options="region:'north',href:'jsp/top.jsp'" style="height:100px;"></div> -->
      <div data-options="region:'west',title:'west',split:true,href:'jsp/west.jsp'" style="width:220px;"></div>
      <div data-options="region:'center',title:'数据区',href:'jsp/center.jsp'" style="padding:5px;"></div>  
   </body> 

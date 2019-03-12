@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ac.ict.menelaus.aiops.dal.impl.ServiceApplicationControlDal">
+	<resultMap id="serviceApplicationControlMap" type="serviceApplicationControl">
+	  <id property="Id" column="id" />
+	  <result property="Timestamp" column="timestampe"/>
+	  <result property="RuleName" column="rule_name"/>
+	  <result property="User" column="user"/>
+	  <result property="SourceIp" column="source_ip"/>
+	  <result property="SourcePort" column="source_port"/>
+	  <result property="DestinationIp" column="destination_ip"/>
+	  <result property="DestinationPort" column="destination_port"/>
+	  <result property="ApplicationType" column="application_type"/>
+	  <result property="ApplicationName" column="application_name"/>
+	  <result property="SystemAction" column="system_action"/>
+	</resultMap>
+	
+	<select id="showAll" resultMap="testMap">
+		select * from test
+	</select>
+
+</mapper>
