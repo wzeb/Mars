@@ -1,5 +1,7 @@
 package ac.ict.menelaus.aiops.dal.intf;
 
-public interface IIPSDal {
+import ac.ict.menelaus.aiops.object.dao.IPS;
+
+public interface IIPSDal extends IBaseDal<IPS> {
 
 }

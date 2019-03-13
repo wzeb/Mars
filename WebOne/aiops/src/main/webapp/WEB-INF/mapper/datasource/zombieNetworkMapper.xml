@@ -6,7 +6,7 @@
 	  <id property="Id" column="id" />
 	  <result property="Timestamp" column="timestampe"/>
 	  <result property="RuleName" column="rule_name"/>
-	  <result property="FeatureId" column="vulnerability_id"/>
+	  <result property="FeatureId" column="feature_id"/>
 	  <result property="SourceIp" column="source_ip"/>
 	  <result property="SourcePort" column="source_port"/>
 	  <result property="DestinationIp" column="destination_ip"/>
@@ -16,8 +16,42 @@
 	  <result property="SystemAction" column="system_action"/>
 	</resultMap>
 	
-	<select id="showAll" resultMap="testMap">
-		select * from test
+	<select id="SelectByPage" resultMap="zombieNetworkMap" parameterType="java.util.Map">
+		select * from zombie_network where
+		<if test="Id != null">
+			id = #{Id,jdbcType=INTEGER} and
+		</if>
+		<if test="Timestamp != null">
+			timestamp = #{Timestamp,jdbcType=DATE} and
+		</if>
+		<if test="RuleName != null">
+			rule_name = #{RuleName,jdbcType=VARCHAR} and
+		</if>
+		<if test="FeatureId != null">
+			feature_id = #{FeatureId,jdbcType=INTEGER} and
+		</if>
+		<if test="SourceIp != null">
+			source_ip = #{SourceIp,jdbcType=VARCHAR} and
+		</if>
+		<if test="SourcePort != null">
+			source_port = #{SourcePort,jdbcType=INTEGER} and
+		</if>
+		<if test="DestinationIp != null">
+			destination_ip = #{DestinationIp,jdbcType=VARCHAR} and
+		</if>
+		<if test="DestinationPort != null">
+			destination_port = #{DestinationPort,jdbcType=INTEGER} and
+		</if>
+		<if test="AttackType != null">
+			attack_type = #{AttackType,jdbcType=VARCHAR} and
+		</if>
+		<if test="Severity != null">
+			severity = #{Severity,jdbcType=VARCHAR} and
+		</if>
+		<if test="SystemAction != null">
+			system_action = #{SystemAction,jdbcType=VARCHAR} and
+		</if>
+		 1=1 LIMIT #{Offset},#{Count};
 	</select>
 
 </mapper>
