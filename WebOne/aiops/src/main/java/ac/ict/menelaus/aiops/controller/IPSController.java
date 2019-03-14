@@ -27,9 +27,10 @@ public class IPSController {
 
 	@RequestMapping(value = "pageview.do", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseVo Index(@RequestParam Integer count, @RequestParam Integer offset) {
-    	LOG.debug("Get: count="+count+", offset="+offset);
-    	List<IPS> kList = iPSService.showPage(offset, count);
+    public ResponseVo Index(@RequestParam(required = false) String StartDate,
+    		@RequestParam(required = false) String EndDate) {
+    	LOG.debug("Get: StartDate="+StartDate+", EndDate="+EndDate);
+    	List<IPS> kList = iPSService.showPage(StartDate, EndDate);
         return WebUtils.Response(kList);
     }
 	

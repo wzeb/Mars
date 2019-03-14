@@ -4,6 +4,7 @@
 <script type="text/javascript" src="jsp/lib/easyui/jquery.min.js"></script>
 <script type="text/javascript" src="jsp/lib/easyui/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="jsp/lib/easyui/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="jsp/lib/utils.js"></script>
 
 <html>
 <head>
@@ -14,6 +15,6 @@
 <body id="ff" class="easyui-layout">
 <!--      <div data-options="region:'north',href:'jsp/top.jsp'" style="height:100px;"></div> -->
      <div data-options="region:'west',title:'west',split:true,href:'jsp/west.jsp'" style="width:220px;"></div>
-     <div data-options="region:'center',href:'jsp/center.jsp'" style="padding:5px;"></div>  
+     <div data-options="region:'center',href:'jsp/center.jsp'"></div>  
   </body> 
 </html>

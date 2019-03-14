@@ -19,11 +19,11 @@ public class IPSService implements IIPSService {
 	private IPSDal iPSDal;
 	
 	@Override
-	public List<IPS> showPage(Integer offset, Integer count) {
+	public List<IPS> showPage(String StartDate, String EndDate) {
 		// TODO Auto-generated method stub
 		Map<String, Object> params = new HashMap<>();
-		params.put("Offset", offset);
-		params.put("Count", count);
+		params.put("StartDate", StartDate);
+		params.put("EndDate", EndDate);
 		return iPSDal.selectByPage(params);
 	}
 

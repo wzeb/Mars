@@ -7,8 +7,7 @@ $('#westtree').tree({
 // 		console.log(node);
 		switch(node.text){
 		case "IPS日志":
-			$('#ff').layout("panel","center").panel("refresh","jsp/center.jsp");
-			console.log("hit");
+			LoadRawContent("IPS");
 			return ;
 		default:
 			return;
@@ -16,7 +15,9 @@ $('#westtree').tree({
 	}
 })
 
-function LoadContent(content){
+function LoadRawContent(content){
+	$('#panel_center').layout("panel","center").panel("refresh","jsp/center/raw/"+content+"raw.jsp");
+	$('#panel_center').layout("panel","north").panel("refresh","jsp/center/raw/"+content+"figure.jsp");
 	return ;
 }
 
