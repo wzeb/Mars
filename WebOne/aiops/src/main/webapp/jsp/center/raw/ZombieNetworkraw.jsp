@@ -1,6 +1,6 @@
 <%@ page language="java"  import="java.util.*" pageEncoding="UTF-8"%>
 <script>
-$('#IPSRaw').datagrid({
+$('#ZombieNetworkRaw').datagrid({
 	rownumbers:true,
 	singleSelect:true,
 	toolbar:'#tb',
@@ -11,13 +11,11 @@ $('#IPSRaw').datagrid({
 				return dateFormat("yyyy-MM-dd hh:mm:ss",new Date(value));
 			}},
 		{field:'ruleName',title:'策略名称',width:120},
-		{field:'vulnerabilityId',title:'漏洞ID',width:100},
-		{field:'vulerabilityName',title:'漏洞名称',width:100},
+		{field:'featureId',title:'特征ID',width:100},
 		{field:'sourceIp',title:'源IP',width:150},
 		{field:'sourcePort',title:'源端口',width:100},
 		{field:'destinationIp',title:'目的IP',width:150},
 		{field:'destinationPort',title:'目的端口',width:100},
-		{field:'protocol',title:'协议',width:100},
 		{field:'attackType',title:'攻击类型',width:150},
 		{field:'severity',title:'严重等级',width:100},
 		{field:'systemAction',title:'动作',width:100}
@@ -36,7 +34,7 @@ $(function(){
 			params["EndDate"] = endDate;
 		}
 		$.ajax({
-			url:'${rootPath}/aiops/IPS/pageview.do',
+			url:'${rootPath}/aiops/ZombieNetwork/pageview.do',
 			type:"POST",
 			dataType:"json",
 			data: params,
@@ -45,7 +43,7 @@ $(function(){
 					console.log(result.message)
 				}
 				else{
-					$('#IPSRaw').datagrid('loadData',result.data);
+					$('#ZombieNetworkRaw').datagrid('loadData',result.data);
 					var data = result.data;
 					
 				}
@@ -56,7 +54,7 @@ $(function(){
 </script>
 
 
-<table id="IPSRaw" class="easyui-datagrid" style="width:100%;height:100%;">
+<table id="ZombieNetworkRaw" class="easyui-datagrid" style="width:100%;height:100%;">
 <!-- 	data-options="rownumbers:true,singleSelect:true,toolbar:'#tb',fitColumns:true"> -->
 
 </table>

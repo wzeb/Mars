@@ -18,40 +18,13 @@
 	
 	<select id="selectByPage" resultMap="zombieNetworkMap" parameterType="java.util.Map">
 		select * from zombie_network where
-		<if test="Id != null">
-			id = #{Id,jdbcType=INTEGER} and
+		<if test="StartDate != null">
+			timestamp > #{StartDate,jdbcType=DATE} and
 		</if>
-		<if test="Timestamp != null">
-			timestamp = #{Timestamp,jdbcType=DATE} and
-		</if>
-		<if test="RuleName != null">
-			rule_name = #{RuleName,jdbcType=VARCHAR} and
-		</if>
-		<if test="FeatureId != null">
-			feature_id = #{FeatureId,jdbcType=INTEGER} and
-		</if>
-		<if test="SourceIp != null">
-			source_ip = #{SourceIp,jdbcType=VARCHAR} and
-		</if>
-		<if test="SourcePort != null">
-			source_port = #{SourcePort,jdbcType=INTEGER} and
-		</if>
-		<if test="DestinationIp != null">
-			destination_ip = #{DestinationIp,jdbcType=VARCHAR} and
-		</if>
-		<if test="DestinationPort != null">
-			destination_port = #{DestinationPort,jdbcType=INTEGER} and
-		</if>
-		<if test="AttackType != null">
-			attack_type = #{AttackType,jdbcType=VARCHAR} and
-		</if>
-		<if test="Severity != null">
-			severity = #{Severity,jdbcType=VARCHAR} and
-		</if>
-		<if test="SystemAction != null">
-			system_action = #{SystemAction,jdbcType=VARCHAR} and
-		</if>
-		 1=1 LIMIT #{Offset},#{Count};
+		<if test="EndDate != null">
+			timestamp > #{StartDate,jdbcType=DATE} and
+		</if>		
+		 1=1;
 	</select>
 
 </mapper>

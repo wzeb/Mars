@@ -9,6 +9,9 @@ $('#westtree').tree({
 		case "IPS日志":
 			LoadRawContent("IPS");
 			return ;
+		case "僵尸网络日志":
+			LoadRawContent("ZombieNetwork");
+			return ;
 		default:
 			return;
 		}

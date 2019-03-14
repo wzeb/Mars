@@ -1,5 +1,9 @@
 package ac.ict.menelaus.aiops.service.impl;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -15,9 +19,11 @@ public class ZombieNetworkService implements IZombieNetworkService {
 	private IZombieNetworkDal zombieNetworkDal;
 	
 	@Override
-	public ZombieNetwork showPage(Integer offset, Integer count) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<ZombieNetwork>  showPage(String StartDate, String EndDate) {
+		Map<String, Object> params = new HashMap<>();
+		params.put("StartDate", StartDate);
+		params.put("EndDate", EndDate);
+		return zombieNetworkDal.selectByPage(params);
 	}
 
 }
