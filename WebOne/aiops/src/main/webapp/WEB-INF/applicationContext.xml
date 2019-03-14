@@ -29,7 +29,7 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 	  <property name="dataSource" ref="dataSource" />
       <property name="configLocation"  value="/WEB-INF/mapper/sqlMapConfig.xml"/>
- 	  <property name="mapperLocations" value="/WEB-INF/mapper/datasource/*.xml" />
+ 	  <property name="mapperLocations" value="/WEB-INF/mapper/datasource/*Mapper.xml" />
 	</bean>
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="${datasource.driver}" />

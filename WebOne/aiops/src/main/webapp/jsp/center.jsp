@@ -1,10 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<body id="ff" class="easyui-layout">
-     <div data-options="region:'north',href:'jsp/top.jsp'" style="height:100px;"></div>
-     <div data-options="region:'center',title:'west',split:true,href:'jsp/west.jsp'" style="width:220px;"></div>
-     <div data-options="region:'south',title:'数据区',href:'jsp/center.jsp'" style="padding:5px;"></div>  
-  </body> 
-</html>
+<%@ page language="java"  import="java.util.*" pageEncoding="UTF-8"%>
+<div id="panel_center" class="easyui-layout" data-options="fit:true">
+     <div data-options="region:'north',split:true" style="height:100px;"></div>
+     <div data-options="region:'center',title:'数据区',split:true" style="height:500px;"></div>
+     <div data-options="region:'south',split:true" ></div>  
+</div> 

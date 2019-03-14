@@ -14,12 +14,22 @@
        http://www.springframework.org/schema/mvc 
        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" />
 
-    <context:component-scan base-package="ac.ict.menelaus.aiops" />
     <mvc:annotation-driven />
+    <context:component-scan base-package="ac.ict.menelaus.aiops" />
 
-    <bean id="viewResolver"
-        class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+    <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" />
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
         p:prefix="/jsp/" p:suffix=".jsp" />
+        
+<!--     <bean id="HandlerMapping" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/> -->
+<!--     <bean id="jacksonMessageConverter" -->
+<!--         class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"> -->
+<!--         <property name="supportedMediaTypes"> -->
+<!--             <list> -->
+<!--                 <value>text/html;charset=UTF-8</value> -->
+<!--                 <value>application/json;charset=UTF-8</value> -->
+<!--             </list> -->
+<!--         </property> -->
+<!--     </bean>     -->
 </beans>

@@ -22,6 +22,8 @@ public class IPSService implements IIPSService {
 	public List<IPS> showPage(Integer offset, Integer count) {
 		// TODO Auto-generated method stub
 		Map<String, Object> params = new HashMap<>();
+		params.put("Offset", offset);
+		params.put("Count", count);
 		return iPSDal.selectByPage(params);
 	}
 

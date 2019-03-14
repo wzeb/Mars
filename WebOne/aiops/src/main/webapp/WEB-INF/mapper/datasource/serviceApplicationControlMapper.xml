@@ -16,7 +16,7 @@
 	  <result property="SystemAction" column="system_action"/>
 	</resultMap>
 	
-	<select id="SelectByPage" resultMap="serviceApplicationControlMap" parameterType="java.util.Map">
+	<select id="selectByPage" resultMap="serviceApplicationControlMap" parameterType="java.util.Map">
 		select * from service_application_control where
 		<if test="Id != null">
 			id = #{Id,jdbcType=INTEGER} and

@@ -16,7 +16,7 @@
 	  <result property="SystemAction" column="system_action"/>
 	</resultMap>
 	
-	<select id="SelectByPage" resultMap="zombieNetworkMap" parameterType="java.util.Map">
+	<select id="selectByPage" resultMap="zombieNetworkMap" parameterType="java.util.Map">
 		select * from zombie_network where
 		<if test="Id != null">
 			id = #{Id,jdbcType=INTEGER} and

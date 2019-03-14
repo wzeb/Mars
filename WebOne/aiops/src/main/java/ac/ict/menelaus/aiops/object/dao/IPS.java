@@ -10,7 +10,7 @@ public class IPS {
 	private String VulerabilityName;
 	private String SourceIp;
 	private Integer SourcePort;
-	private String DestinationId;
+	private String DestinationIp;
 	private Integer DestinationPort;
 	private String Protocol;
 	private String AttackType;
@@ -58,11 +58,11 @@ public class IPS {
 	public void setSourcePort(Integer sourcePort) {
 		SourcePort = sourcePort;
 	}
-	public String getDestinationId() {
-		return DestinationId;
+	public String getDestinationIp() {
+		return DestinationIp;
 	}
-	public void setDestinationId(String destinationId) {
-		DestinationId = destinationId;
+	public void setDestinationIp(String destinationId) {
+		DestinationIp = destinationId;
 	}
 	public Integer getDestinationPort() {
 		return DestinationPort;

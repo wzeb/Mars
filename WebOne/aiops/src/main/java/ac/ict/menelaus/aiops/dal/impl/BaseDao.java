@@ -20,6 +20,6 @@ public class BaseDao<T> implements IBaseDal<T> {
 	}
 
 	protected String fullQueryName(String queryName) {
-		return this.getClass().getName() + queryName;
+		return this.getClass().getName() + "." + queryName;
 	}
 }

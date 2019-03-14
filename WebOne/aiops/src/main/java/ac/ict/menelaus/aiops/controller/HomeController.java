@@ -8,18 +8,20 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import ac.ict.menelaus.aiops.service.intf.ITestService;
 
-@Controller("home")
+@Controller
+@RequestMapping("home")
 public class HomeController {
     private static final Logger LOG = LoggerFactory.getLogger(HomeController.class);
 
     @Resource
     private ITestService testService;
     
-    @RequestMapping(value = "index.do")
+    @RequestMapping(value = "index.do", method = RequestMethod.GET)
     @ResponseBody
     public String Index() {
     	LOG.debug("INTO");
