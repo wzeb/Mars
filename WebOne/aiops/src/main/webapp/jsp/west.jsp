@@ -12,6 +12,9 @@ $('#westtree').tree({
 		case "僵尸网络日志":
 			LoadRawContent("ZombieNetwork");
 			return ;
+		case "应用服务控制日志":
+			LoadRawContent("SAC");
+			return ;
 		default:
 			return;
 		}

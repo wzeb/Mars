@@ -10,7 +10,7 @@ $('#SACRaw').datagrid({
 			formatter: function(value,row,index){
 				return dateFormat("yyyy-MM-dd hh:mm:ss",new Date(value));
 			}},
-		{field:'ruleName',title:'策略名称',width:120},
+		{field:'ruleName',title:'策略名称',width:220},
 		{field:'user',title:'用户',width:100},
 		{field:'sourceIp',title:'源IP',width:150},
 		{field:'sourcePort',title:'源端口',width:100},
