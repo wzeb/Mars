@@ -18,37 +18,13 @@
 	
 	<select id="selectByPage" resultMap="serviceApplicationControlMap" parameterType="java.util.Map">
 		select * from service_application_control where
-		<if test="Id != null">
-			id = #{Id,jdbcType=INTEGER} and
+		<if test="StartDate != null">
+			timestamp > #{StartDate,jdbcType=DATE} and
 		</if>
-		<if test="Timestamp != null">
-			timestamp = #{Timestamp,jdbcType=DATE} and
-		</if>
-		<if test="User != null">
-			user = #{User,jdbcType=VARCHAR} and
-		</if>
-		<if test="SourceIp != null">
-			source_ip = #{SourceIp,jdbcType=VARCHAR} and
-		</if>
-		<if test="SourcePort != null">
-			source_port = #{SourcePort,jdbcType=INTEGER} and
-		</if>
-		<if test="DestinationIp != null">
-			destination_ip = #{DestinationIp,jdbcType=VARCHAR} and
-		</if>
-		<if test="DestinationPort != null">
-			destination_port = #{DestinationPort,jdbcType=INTEGER} and
-		</if>
-		<if test="ApplicationType != null">
-			application_type = #{ApplicationType,jdbcType=VARCHAR} and
-		</if>
-		<if test="ApplicationName != null">
-			application_name = #{ApplicationName,jdbcType=VARCHAR} and
-		</if>
-		<if test="SystemAction != null">
-			system_action = #{SystemAction,jdbcType=VARCHAR} and
-		</if>
-		 1=1 LIMIT #{Offset},#{Count};
+		<if test="EndDate != null">
+			timestamp > #{StartDate,jdbcType=DATE} and
+		</if>		
+		 1=1;
 	</select>
 
 </mapper>
