@@ -59,6 +59,7 @@ $(function(){
 <table id="IPSRaw" class="easyui-datagrid" style="width:100%;height:100%;">
 <!-- 	data-options="rownumbers:true,singleSelect:true,toolbar:'#tb',fitColumns:true"> -->
 
+
 </table>
 <div id="tb" style="padding:5px;height:auto">
 	<div>
