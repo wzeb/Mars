@@ -4,6 +4,7 @@
 <script type="text/javascript" src="jsp/lib/easyui/jquery.min.js"></script>
 <script type="text/javascript" src="jsp/lib/easyui/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="jsp/lib/easyui/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="jsp/lib/apexcharts/apexcharts.js"></script>
 <script type="text/javascript" src="jsp/lib/utils.js"></script>
 
 <html>
