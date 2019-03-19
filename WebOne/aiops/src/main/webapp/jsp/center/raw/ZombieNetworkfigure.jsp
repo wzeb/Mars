@@ -6,6 +6,7 @@ var chart;
 function newRender(newValue, oldValue){
 	var data = $('#ZombieNetworkRaw').datagrid('getData');
 	var aggregate_target = $('#aggregate_target').combobox('getValue');
+	var chart_type = $('#chart_type').combobox('getValue');
 	var point = $('#interval_unit').combobox('getValue');
  	var getTime = tar => roundTime(tar["timestamp"],point).getTime();	
 	var aggredata = cummulation(getTime,aggregate_target,data.rows);	
@@ -23,7 +24,7 @@ function newRender(newValue, oldValue){
 		chart: {
 			width: '100%',
 			height: '90%',
-		    type: 'line',
+		    type: chart_type,
 // 			zoom: {
 // 			    type: 'x',
 // 			    enabled: true
@@ -61,6 +62,13 @@ function newRender(newValue, oldValue){
 		<option value="attackType">攻击类型</option>
 		<option value="severity">严重等级</option>
 		<option value="systemAction">动作</option>
+	</select>
+	样式：
+	<select id="chart_type" class="easyui-combobox" name="chart_type" 
+	style="width:130px;" value="min" data-options="editable:false,onChange:newRender">
+		<option value="line" selected="selected">线性图</option>
+		<option value="bar">直方图</option>
+		<option value="area">区域图</option>
 	</select>
 </div>
 <div id="zombienetworkchart">
