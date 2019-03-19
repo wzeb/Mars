@@ -45,7 +45,7 @@ $(function(){
 				else{
 					$('#SACRaw').datagrid('loadData',result.data);
 					var data = result.data;
-					
+					newRender();
 				}
 			}
 		})

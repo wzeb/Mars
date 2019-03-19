@@ -47,7 +47,7 @@ $(function(){
 				else{
 					$('#IPSRaw').datagrid('loadData',result.data);
 					var data = result.data;
-					
+					newRender();
 				}
 			}
 		})

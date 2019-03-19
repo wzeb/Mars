@@ -45,7 +45,7 @@ $(function(){
 				else{
 					$('#ZombieNetworkRaw').datagrid('loadData',result.data);
 					var data = result.data;
-					
+					newRender();
 				}
 			}
 		})
