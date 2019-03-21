@@ -17,7 +17,7 @@
 	</resultMap>
 	
 	<select id="selectByPage" resultMap="zombieNetworkMap" parameterType="java.util.Map">
-		select * from zombie_network where
+		select * from NJ_zombie_network where
 		<if test="StartDate != null">
 			timestamp > #{StartDate,jdbcType=DATE} and
 		</if>

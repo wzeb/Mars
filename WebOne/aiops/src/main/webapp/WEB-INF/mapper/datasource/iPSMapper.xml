@@ -19,7 +19,7 @@
 	</resultMap>
 	
 	<select id="selectByPage" resultMap="IPSMap" parameterType="java.util.Map">
-		select * from IPS where
+		select * from NJ_IPS where
 		<if test="StartDate != null">
 			timestamp > #{StartDate,jdbcType=DATE} and
 		</if>

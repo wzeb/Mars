@@ -17,7 +17,7 @@
 	</resultMap>
 	
 	<select id="selectByPage" resultMap="serviceApplicationControlMap" parameterType="java.util.Map">
-		select * from service_application_control where
+		select * from NJ_service_application_control where
 		<if test="StartDate != null">
 			timestamp > #{StartDate,jdbcType=DATE} and
 		</if>
