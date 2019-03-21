@@ -265,3 +265,4 @@ with open(out_dir + 'training_info.txt', 'w') as f :
     for acc in ave_accuracy_arr :
         f.write(str(acc) + '\n')
 print('over.')
+   
